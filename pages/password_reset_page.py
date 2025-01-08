@@ -20,4 +20,4 @@ class PasswordResetPage(BasePage):
     @allure.step("Проверка: текущая страница это страница cброса пароля")
     def check_current_url(self):
         current_url = self.get_current_url()
-        assert current_url == BR.reset_password
+        assert current_url == BR.reset_password, current_url

@@ -30,6 +30,7 @@ class TestPasswordRecovery:
         pass_recovery_page = PasswordRecoveryPage(driver)
         pass_recovery_page.input_email(created_user["email"])
         pass_recovery_page.click_recovery_button()
+        pass_recovery_page.wait_redirect()
         pass_reset_page = PasswordResetPage(driver)
         pass_reset_page.check_current_url()
 
@@ -45,3 +46,4 @@ class TestPasswordRecovery:
         pass_reset_page = PasswordResetPage(driver)
         pass_reset_page.click_show_hide_button()
         pass_reset_page.check_reset_password_field_is_active()
+

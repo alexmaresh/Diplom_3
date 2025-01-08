@@ -20,3 +20,8 @@ class PasswordRecoveryPage(BasePage):
     def check_current_url(self):
         current_url = self.get_current_url()
         assert current_url == BR.forget_password
+
+    @allure.step('Ожидание редиректа')
+    def wait_redirect(self):
+        return self.wait_url_change(BR.forget_password)
+

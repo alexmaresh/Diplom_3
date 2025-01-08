@@ -48,7 +48,7 @@ class TestOrdersFeed:
         login_page.input_password(created_user["password"])
         login_page.click_login_submit_button()
         home_page.wait_home_page_loading()
-        home_page.move_ingredient_to_order()
+        home_page.add_ingredient_to_cart()
         home_page.click_order_button()
         home_page.click_window_order_close_button()
         home_page.wait_home_page_loading()

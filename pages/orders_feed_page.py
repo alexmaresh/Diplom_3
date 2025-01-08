@@ -28,7 +28,7 @@ class OrdersFeedPage(BasePage):
     @allure.step("Получение значения счетчика Выполнено за всё время")
     def get_counter_all_orders(self):
         counter = self.wait_and_find_element(locs.all_orders_counter)
-        return int(counter.tсext)
+        return int(counter.text)
 
     @allure.step("Получение значения счетчика Выполнено за сегодня")
     def get_counter_today_orders(self):

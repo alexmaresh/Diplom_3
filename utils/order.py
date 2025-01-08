@@ -21,9 +21,8 @@ class Order:
         data = self.get_ingredients_dict()
         random_ids = random.sample(list(data.keys()), 2)
         params = {"ingredients": random_ids}
-        resp = requests.post(BR.orders, json=params,
-                             headers={'Authorization': access_token})
-        order_num = resp.json()['order']['number']
+        resp = requests.post(
+            BR.orders, json=params, headers={"Authorization": access_token}
+        )
+        order_num = resp.json()["order"]["number"]
         return order_num
-
-

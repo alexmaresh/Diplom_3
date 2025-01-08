@@ -4,16 +4,19 @@ from seletools.actions import drag_and_drop
 
 
 class BasePage:
-
     def __init__(self, driver):
         self.driver = driver
         self.timeout = 10
 
     def wait_element_loading(self, locator):
-        return WebDriverWait(self.driver, self.timeout).until(ec.visibility_of_element_located(locator))
+        return WebDriverWait(self.driver, self.timeout).until(
+            ec.visibility_of_element_located(locator)
+        )
 
     def wait_element_invisible(self, locator):
-        return WebDriverWait(self.driver, self.timeout).until(ec.invisibility_of_element_located(locator))
+        return WebDriverWait(self.driver, self.timeout).until(
+            ec.invisibility_of_element_located(locator)
+        )
 
     def wait_and_find_element(self, locator):
         self.wait_element_loading(locator)
@@ -26,7 +29,7 @@ class BasePage:
         return drag_and_drop(self.driver, source_element, target_element)
 
     def wait_url_change(self, old_url):
-        return WebDriverWait(self.driver,self.timeout).until(ec.url_changes(old_url))
+        return WebDriverWait(self.driver, self.timeout).until(ec.url_changes(old_url))
 
     def get_current_url(self):
         return self.driver.current_url

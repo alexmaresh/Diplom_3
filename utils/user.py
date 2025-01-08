@@ -1,5 +1,4 @@
 from faker import Faker
-import random
 import allure
 import requests
 from utils.routes import BurgerRoutes as BR
@@ -13,7 +12,7 @@ class User:
         payload = {
             "email": fake.email(),
             "password": fake.password(),
-            "name": fake.first_name()
+            "name": fake.first_name(),
         }
         return payload
 
@@ -21,9 +20,9 @@ class User:
     def create_user(self):
         params = self.generate_user_data()
         resp = requests.post(BR.register, json=params)
-        return params, resp.json()
+        params['accessToken'] = resp.json()['accessToken']
+        return params
 
     @allure.step("Удаление пользователя")
     def delete_user(self, access_token):
-        return requests.delete(BR.user, headers={'Authorization': access_token})
-
+        return requests.delete(BR.user, headers={"Authorization": access_token})

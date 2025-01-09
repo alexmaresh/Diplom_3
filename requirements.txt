@@ -1,0 +1,5 @@
+allure-pytest==2.13.5
+pytest==8.3.4
+ruff==0.8.6
+selenium==4.27.1
+seletools==1.5.0
